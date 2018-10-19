@@ -72,7 +72,7 @@ def handle_message(event):
     profile = line_bot_api.get_profile(sender)
 
 data=text.split('-')
-if(data[0]=='new'):
+if(data[0]=='cek'):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=cariteman(data[1])))
     
    
