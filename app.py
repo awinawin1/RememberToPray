@@ -36,22 +36,23 @@ from linebot.models import (
 app = Flask(__name__)
 
 # Channel Access Token
-line_bot_api = LineBotApi('/52Vu4/OPS4F/WVMJTvm/F/g3gOnuIwvZneoJaSxVI2YkIAMYUaZhoPcWWjMmmts/B3ucawJAu6nf9VKP+9INrOfUD6cEaAIpY9pCC/QlygrK3Fy/7eADZmycdxgK0liDojDNy3lRIu+NpWV/4a7ggdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi('iN84VXXxDZEG6iZHl4TmHACqEBPsYfz0c7Vd8Lbzv7e64kvXRpq5Jnh9NTqULp9G/B3ucawJAu6nf9VKP+9INrOfUD6cEaAIpY9pCC/QlyiAuHzPoueALcT0zM40hQte/bFjcwSKEzCGFdKlfsAJUwdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
-handler = WebhookHandler('528d87d1aebfb8fb9a247b280de8a912')
+handler = WebhookHandler('4a04bf97f085104ce2a7044775665ce2')
 #===========[ NOTE SAVER ]=======================
 notes = {}
 
 #input mencari
-def cariteman(kota):
-    URLteman = "https://time.siswadi.com/timezone/" + kota
+def carijadwal(kota):
+    URLsolat = "https://time.siswadi.com/timezone/" + kota
     r = requests.get(URLteman)
     data = r.json()
     # print(data)
     status = data['time']['timezone']
+    letak = data['location']['address']
     jam = data['time']['time']
-    print("Daerah : " + status + "\n" + "Jam sholat : " + jam)
-cariteman("Bandung")
+    ini="Lokasi : " + status + "\n" + "Kota anda: " + letak + "\n" + "Jam sholat : " + jam
+    return (ini)
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -71,9 +72,11 @@ def handle_message(event):
     gid = event.source.sender_id #get group_id
     profile = line_bot_api.get_profile(sender)
 
-data=text.split('-')
-if(data[0]=='cek'):
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=cariteman(data[1])))
+    data=text.split('-')
+    if(data[0]=='cek'):
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=carijadwal(data[1])))
+    else:
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="Bukan menupakan kota di Indonesia pakai cek-(nama kota)"))
     
    
 import os
