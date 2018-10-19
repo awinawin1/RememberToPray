@@ -43,16 +43,16 @@ handler = WebhookHandler('4a04bf97f085104ce2a7044775665ce2')
 notes = {}
 
 #input mencari
-def carijadwal(kota):
-    URLsolat = "https://time.siswadi.com/timezone/" + kota
-    r = requests.get(URLteman)
-    data = r.json()
-    # print(data)
-    status = data['time']['timezone']
-    letak = data['location']['address']
-    jam = data['time']['time']
-    ini="Lokasi : " + status + "\n" + "Kota anda: " + letak + "\n" + "Jam sholat : " + jam
-    return ini
+# def carijadwal(kota):
+#     URLsolat = "https://time.siswadi.com/timezone/" + kota
+#     r = requests.get(URLteman)
+#     data = r.json()
+#     # print(data)
+#     status = data['time']['timezone']
+#     letak = data['location']['address']
+#     jam = data['time']['time']
+#     ini="Lokasi : " + status + "\n" + "Kota anda: " + letak + "\n" + "Jam sholat : " + jam
+#     return ini
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -71,12 +71,13 @@ def handle_message(event):
     sender = event.source.user_id #get usesenderr_id
     gid = event.source.sender_id #get group_id
     profile = line_bot_api.get_profile(sender)
+    line_bot_api.reply_message(event.reply_token,TextSendMessage(text="masuk"))
 
-    data=text.split('-')
-    if(data[0]=='cek'):
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=carijadwal(data[1])))
-    else:
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="Bukan menupakan kota di Indonesia pakai cek-(nama kota)"))
+    # data=text.split('-')
+    # if(data[0]=='cek'):
+    #     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=carijadwal(data[1])))
+    # else:
+    #     line_bot_api.reply_message(event.reply_token, TextSendMessage(text="Bukan menupakan kota di Indonesia pakai cek-(nama kota)"))
     
    
 import os
