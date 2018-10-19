@@ -52,7 +52,7 @@ def carijadwal(kota):
     letak = data['location']['address']
     jam = data['time']['time']
     ini="Lokasi : " + status + "\n" + "Kota anda: " + letak + "\n" + "Jam sholat : " + jam
-    return (ini)
+    return ini
 
 @app.route("/callback", methods=['POST'])
 def callback():
