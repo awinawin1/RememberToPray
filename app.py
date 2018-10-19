@@ -41,6 +41,16 @@ handler = WebhookHandler('4a04bf97f085104ce2a7044775665ce2')
 #===========[ NOTE SAVER ]=======================
 notes = {}
 
+def carijadwal(kota):
+    URLsolat = "https://time.siswadi.com/timezone/" + kota
+    r = requests.get(URLteman)
+    data = r.json()
+    # print(data)
+    status = data['time']['timezone']
+    letak = data['location']['address']
+    jam = data['time']['time']
+    ini="Lokasi : " + status + "\n" + "Kota anda: " + letak + "\n" + "Jam sholat : " + jam
+    return ini
 
 
 # Post Request
@@ -62,7 +72,7 @@ def handle_message(event):
     gid = event.source.sender_id #get group_id
     profile = line_bot_api.get_profile(sender)
     
-    line_bot_api.reply_message(event.reply_token,TextSendMessage(text="masuk"))
+    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=carijadwal("bandung")))
     
 import os
 if __name__ == "__main__":
