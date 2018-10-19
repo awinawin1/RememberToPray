@@ -35,28 +35,13 @@ from linebot.models import (
 app = Flask(__name__)
 
 # Channel Access Token
-line_bot_api = LineBotApi('nCheFomZPKA81EfMCsgkGDaLIWlGlRdX/i9N4JAa2Vvetw4iB0iKyhX9EushTlct8Xm14AjoAhxifXP1THdjBLoIxT6bruyTKY10+M2Ea5iX0p9zraG/0kFvirKsv4vFV7SyYR7IAuEJvSyzvQDwMAdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi('iN84VXXxDZEG6iZHl4TmHACqEBPsYfz0c7Vd8Lbzv7e64kvXRpq5Jnh9NTqULp9G/B3ucawJAu6nf9VKP+9INrOfUD6cEaAIpY9pCC/QlyiAuHzPoueALcT0zM40hQte/bFjcwSKEzCGFdKlfsAJUwdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
-handler = WebhookHandler('a13be1528f294201578d36297fc549a6')
+handler = WebhookHandler('4a04bf97f085104ce2a7044775665ce2')
 #===========[ NOTE SAVER ]=======================
 notes = {}
 
-#REQUEST DATA MHS
-def carimhs(input):
-    URLmhs = "https://www.pricelist.padmapratama.com/api/mhs.php?nrp=" + input
-    irham = requests.get(URLmhs)
-    data = irham.json()
-    err = "data tidak ditemukan"
-    
-    flag = data['kode']
-    if(flag == "1"):
-        nrp = data['data_angkatan'][0]['nrp']
-        nama = data['data_angkatan'][0]['nama']
-        kos = data['data_angkatan'][0]['kosan']
 
-        return nama + '\n' + nrp + '\n' + kos
-    elif(flag == "0"):
-        return err    
 
 # Post Request
 @app.route("/callback", methods=['POST'])
@@ -76,8 +61,8 @@ def handle_message(event):
     sender = event.source.user_id #get usesenderr_id
     gid = event.source.sender_id #get group_id
     profile = line_bot_api.get_profile(sender)
-    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=carimhs(text)))
-    #line_bot_api.reply_message(event.reply_token,TextSendMessage(text="masuk"))
+    
+    line_bot_api.reply_message(event.reply_token,TextSendMessage(text="masuk"))
     
 import os
 if __name__ == "__main__":
