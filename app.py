@@ -42,15 +42,15 @@ handler = WebhookHandler('4a04bf97f085104ce2a7044775665ce2')
 notes = {}
 
 def carijadwal(kota):
-    URLsolat = "https://time.siswadi.com/timezone/" + kota
-    r = requests.get(URLteman)
-    data = r.json()
-    # print(data)
-    status = data['time']['timezone']
-    letak = data['location']['address']
-    jam = data['time']['time']
-    ini="Lokasi : " + status + "\n" + "Kota anda: " + letak + "\n" + "Jam sholat : " + jam
-    return ini
+    # URLsolat = "https://time.siswadi.com/timezone/" + kota
+    # r = requests.get(URLteman)
+    # data = r.json()
+    # # print(data)
+    # status = data['time']['timezone']
+    # letak = data['location']['address']
+    # jam = data['time']['time']
+    # ini="Lokasi : " + status + "\n" + "Kota anda: " + letak + "\n" + "Jam sholat : " + jam
+    return kota
 
 
 # Post Request
