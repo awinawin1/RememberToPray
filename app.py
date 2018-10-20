@@ -35,9 +35,8 @@ from linebot.models import (
 app = Flask(__name__)
 
 # Channel Access Token
-line_bot_api = LineBotApi('kP6TehM8Tso4frCyTiO1Isteuj6c108h1OihxVr+8Y/qBqqMHqSduuzH4EyHa2sV/B3ucawJAu6nf9VKP+9INrOfUD6cEaAIpY9pCC/QlyiVxIcFWArR5qCDjvnr7VDGO5uhGrYn48WSFKlIvudMdwdB04t89/1O/w1cDnyilFU=')
-# Channel Secret
-handler = WebhookHandler('998f136729f949eeaaa3233d469ed4c7')
+line_bot_api = LineBotApi('AP4wkVtPEf67Q5wr61TIkph9lzRXFqcy8HayR5skbfaPOzMjZXLD1E99ZPHfXrd5/B3ucawJAu6nf9VKP+9INrOfUD6cEaAIpY9pCC/QlyijsYQSYJMEw4SeN+soOvLVX4XnEhz69vx71vP7Cz/AIgdB04t89/1O/w1cDnyilFU=')
+handler = WebhookHandler('e431c0f298452a042cfc8b2f3d6a07db')
 #===========[ NOTE SAVER ]=======================
 notes = {}
 
@@ -54,8 +53,8 @@ def carijadwal(kota):
     Maghrib = data['data']['Maghrib']
     Isha = data['data']['Isha']
     # print("Daerah : " + status + "\n"+"kota : " + letak + "\n"+ "Jam sholat : " + jam)
-        a = "Waktu akses    : " + Waktu +"\n"+"Jadwal Sholat    : " + Lokasi +"\n"+ "Subuh  : " + subuh +"\n"+ "Dhuhr   : " + Dhuhr +"\n"+ "Asr     : " + Asr +"\n"+ "Maghrib   : " + Maghrib +"\n"+"Isha   : "+ Isha
-        return a
+    a = "Waktu akses Anda : " + Waktu +"\n"+"Jadwal Sholat : " + Lokasi +"\n"+ "Subuh: " + subuh +"\n"+ "Dhuhr : " + Dhuhr +"\n"+ "Asr : " + Asr +"\n"+ "Maghrib : " + Maghrib +"\n"+"Isha : "+ Isha
+    return a
 
 
 # Post Request
