@@ -1,4 +1,3 @@
-
 from flask import Flask, request, abort
 
 from linebot import (
@@ -55,14 +54,8 @@ def carijadwal(kota):
     Maghrib = data['data']['Maghrib']
     Isha = data['data']['Isha']
     # print("Daerah : " + status + "\n"+"kota : " + letak + "\n"+ "Jam sholat : " + jam)
-    a = "Waktu akses    : " + Waktu +"\n"+
-        "Jadwal Sholat  : " + Lokasi +"\n"+ 
-        "Subuh  : " + subuh +"\n"+ 
-        "Dhuhr  : " + Dhuhr +"\n"+ 
-        "Asr    : " + Asr +"\n"+ 
-        "Maghrib: " + Maghrib +"\n"+
-        "Isha   : "+ Isha
-    return a
+        a = "Waktu akses    : " + Waktu +"\n"+"Jadwal Sholat    : " + Lokasi +"\n"+ "Subuh  : " + subuh +"\n"+ "Dhuhr   : " + Dhuhr +"\n"+ "Asr     : " + Asr +"\n"+ "Maghrib   : " + Maghrib +"\n"+"Isha   : "+ Isha
+        return a
 
 
 # Post Request
